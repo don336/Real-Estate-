@@ -1,5 +1,5 @@
 class userController {
-  static getUser(req, res) {
+  static async getUser(req, res) {
     return res.status(200).json("Api");
   }
 }
