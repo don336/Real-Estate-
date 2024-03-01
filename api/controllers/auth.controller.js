@@ -2,7 +2,7 @@ import User from "../src/models/user.model.js";
 import bcrypt from "bcrypt";
 
 class AuthController {
-  static async signUp(req, res) {
+  static async signUp(req, res, next) {
     try {
       const { username, email, password } = req.body;
 
@@ -21,10 +21,9 @@ class AuthController {
         throw new Error("Something Went Wrong ");
       }
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   }
 }
 
 export default AuthController;
-[];

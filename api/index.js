@@ -2,6 +2,7 @@ import express from "express";
 import connect from "./middleWare/dbConnect.js";
 import userRouter from "./src/routes/user.route.js";
 import AuthRouter from "./src/routes/auth.route.js";
+import errorHandler from "./middleWare/errorHandler.js";
 
 const app = express();
 app.use(express.json());
@@ -12,5 +13,7 @@ app.listen(3000, () => {
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", AuthRouter);
+
+app.use(errorHandler);
 
 export default app;
